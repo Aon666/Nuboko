@@ -1,0 +1,38 @@
+.split-container {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.pane {
+    padding: 30px;
+    overflow-y: auto;
+    box-sizing: border-box;
+}
+
+.left-pane {
+    border-right: 1px solid #000;    
+}
+
+.right-pane {
+    flex: 1;
+}
+
+.resizer {
+    width: 2px;
+    background-color: #000000;
+    cursor: col-resize;
+    transition: background-color 0.2s;
+}
+
+.resizer:hover {
+    background-color: #007bff;
+}
+
+app-workbench {
+    display: block;
+    height: 100%;
+}
