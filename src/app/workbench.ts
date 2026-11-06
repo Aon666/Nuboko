@@ -14,6 +14,7 @@ import { EditorState } from '@codemirror/state';
 import { EditorView, keymap, lineNumbers, highlightActiveLine } from '@codemirror/view';
 import { defaultKeymap, history, historyKeymap } from '@codemirror/commands';
 import { markdown } from '@codemirror/lang-markdown';
+import { VaultService } from './vault-service';
 
 
 @Component({
@@ -30,6 +31,8 @@ export class WorkbenchComponent implements AfterViewInit, OnDestroy {
     @Output() contentChange = new EventEmitter<string>();
 
     private view?: EditorView;
+
+    constructor(private vaultService: VaultService){}
 
     ngAfterViewInit(): void {
         const updateListener = EditorView.updateListener.of((update) => {
@@ -60,5 +63,10 @@ export class WorkbenchComponent implements AfterViewInit, OnDestroy {
 
     ngOnDestroy(): void {
         this.view?.destroy();
+    }
+
+    onLoadButtonClick(): void {
+        console.log("Button clicked!!!!!");
+        this.vaultService.connectVault();
     }
 }

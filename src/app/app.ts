@@ -16,20 +16,17 @@ export class App {
   activeNoteContent = "This is a test";
 
   protected startResize(event: MouseEvent): void {
-    console.log("Start Resize");
     this.isResizing = true;
 
     const mouseMoveListener = (e: MouseEvent) => {
       if (!this.isResizing) return;
 
-      const newWidth = e.clientX;
-      console.log("Define new Width ", newWidth);
+      const newWidth = e.clientX;     
       
       this.rightWidth.set(newWidth);
     };
 
     const mouseUpListener = () => {
-      console.log("Stop Resize");
       this.isResizing = false;
       window.removeEventListener('mousemove', mouseMoveListener);
       window.removeEventListener('mouseup', mouseUpListener);
